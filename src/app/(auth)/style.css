@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background {
+    background-image: url("https://img.freepik.com/free-vector/pin-map-hotel-logo_1043-112.jpg?w=900&t=st=1709647821~exp=1709648421~hmac=3cca8e03c6a311458480831b5e39aa1992be50c3be0b2a6fc043775180d94ed9");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
