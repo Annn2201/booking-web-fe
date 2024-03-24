@@ -147,7 +147,7 @@ const Hotel = () => {
                                     <p>Type: {hotel.type}</p>
                                 </div>
                                 <div className={'hotel-price'}>
-                                    <p>{hotel.minPrice} - {hotel.maxPrice}</p>
+                                    <p className={'hotel-price-text'}>Price: {hotel.minPrice} - {hotel.maxPrice}</p>
                                     <button className="book-button" onClick={() => handleHotelClick(hotel.name)}>Book
                                         Now
                                     </button>

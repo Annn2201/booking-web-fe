@@ -156,6 +156,7 @@
 
 /* Style table rows */
 .rooms-table td {
+    margin: auto;
     border: 1px solid #ddd;
     padding: 10px;
 }
@@ -217,6 +218,21 @@
 .hotel-add-button:hover {
     background-color: #0000FFC3;
 }
+
+.select-button {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #0000FF;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
 
 
 @media (min-width: 768px) {

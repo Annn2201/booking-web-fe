@@ -3,52 +3,22 @@ import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 import React, {SetStateAction, useEffect, useState} from 'react';
 import {Hotel} from "@/app/hotel/service/interfaces/hotel";
 import {getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/hotel/service/hotelService';
-import "./detail-style.css"
 import {Room} from "@/app/hotel/service/interfaces/room";
 import {number} from "prop-types";
 import {RoomBooking} from "@/app/hotel/service/interfaces/roomBooking";
 
-const HotelDetailPage = () => {
-    const router = useRouter();
+const Book = () => {
     const hotelName = usePathname();
     const [hotelDetails, setHotelDetails] = useState<Hotel>();
     const [rooms, setRooms] = useState<Room[]>([]);
     const [countRooms, setCountRooms] = useState<number>(1);
     const [price, setPrice] = useState<number>(0);
-    const [roomBooking, setRoomBooking] = useState<RoomBooking[]>([]);
-    const getHotelDetailByHotelName = async () => {
-        try {
-            const response = await getHotelDetails(hotelName?.split('/')[2]);
-            if (response) {
-                const data = response.data?.data;
-
-                setHotelDetails(data);
-            } else {
-                throw new Error('Failed to fetch hotel details');
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    const handleBooking = (roomBooking: RoomBooking[]) => {
-        router.push(`/book/?roomBooking=${JSON.stringify(roomBooking)}`)
-        console.log(roomBooking)
-    }
-
-    const getRooms = async () => {
-        try {
-            const response = await getRoomsByHotelName(hotelName?.split('/')[2]);
-            if (response) {
-                const data = response.data?.data;
-                console.log(data)
-                setRooms(data)
-            } else {
-                throw new Error('Failed to fetch rooms');
-            }
-        } catch (error) {
-            console.error(error);
-        }
+    const roomBooking = useSearchParams();
+    const roomBookingList = roomBooking.get('roomBooking')
+    const [roomBookingDetail, setRoomBookingDetail] = useState<RoomBooking[]>([]);
+    const getRoomBooingDetail = () => {
+        setRoomBookingDetail(roomBookingList ? JSON.parse(roomBookingList) : [])
+        console.log(roomBookingDetail)
     }
 
     const handleClick = (roomName: string, price: number, countRooms: number) => {
@@ -62,12 +32,8 @@ const HotelDetailPage = () => {
     };
 
     useEffect(() => {
-        getHotelDetailByHotelName();
-    }, [hotelName]);
-
-    useEffect(() => {
-        getRooms();
-    }, [hotelName]);
+        getRoomBooingDetail();
+    }, []);
 
     if (!hotelDetails) {
         return <div>Loading...</div>;
@@ -142,7 +108,7 @@ const HotelDetailPage = () => {
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
-                                            </select>
+                                            </select >
                                             <button className='select-button'
                                                     onClick={() => handleClick(room.name, room.price.valueOf(), countRooms)}>Select
                                             </button>
@@ -168,10 +134,11 @@ const HotelDetailPage = () => {
                         ))}
                     </ul>
                     <p>Total Price: {price}</p>
-                    <div className="hotel-add-button" onClick={() => handleBooking(roomBooking)}>Book Now</div>
+                    <div className="hotel-add-button">Book Now</div>
                 </div>
             </div>
         </div>
     );
 };
-export default HotelDetailPage;
+
+export default Book;

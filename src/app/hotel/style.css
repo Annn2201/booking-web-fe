@@ -131,7 +131,7 @@
     margin-right: 0.5rem;
 }
 
-.hotel-search-button {
+.hotel-search-button{
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -182,10 +182,6 @@
     margin-bottom: 0.25rem;
 }
 
-.hotel-list p {
-    color: #4B5563;
-}
-
 .hotel-item {
     display: flex;
     width: auto;
@@ -207,6 +203,11 @@
     width: 30%;
     margin-top: 1rem;
     margin-left: 10rem;
+}
+
+.hotel-price-text {
+    color: #0000FF;
+    font-weight: bold;
 }
 
 .book-button {
