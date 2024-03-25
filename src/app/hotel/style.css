@@ -37,12 +37,12 @@
     display: block;
     width: 0;
     height: 3px;
-    background-color: #171100;
+    background-color: #0000FF;
     transition: width 0.3s;
 }
 
 .li:hover::after {
-    width: 25%;
+    width: 100%;
 }
 
 .li:hover {
@@ -74,14 +74,57 @@
     object-fit: fill;
 }
 
+.filter-bar {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: -50px; /* Điều chỉnh margin-top để đặt thanh bộ lọc vào giữa */
+    z-index: 1; /* Đảm bảo thanh bộ lọc hiển thị trên phần background image */
+}
+
+.filter-bar label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-bar input[type="text"],
+.filter-bar input[type="number"],
+.filter-bar input[type="date"] {
+    width: calc(25% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filter-bar button.filter-button {
+    padding: 10px 20px;
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filter-bar button.filter-button:hover {
+    background-color: #0000FFC3;
+}
+
+
 .body-container {
     display: flex;
     position: relative; /* Để đảm bảo .hotel-search stick với .body-container */
+    margin-top: 1rem;
 }
 
 .hotel-search {
     width: 20%;
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 1rem;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -101,7 +144,7 @@
 .hotel-checkin-out-box,
 .hotel-type-box {
     height: 20rem;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
     padding: 1rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;

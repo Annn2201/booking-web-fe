@@ -124,6 +124,21 @@ const Hotel = () => {
                     backgroundPosition: 'right',
                 }}></div>
             </div>
+            <div className="filter-bar">
+                <label htmlFor="numOfPeople">Số người:</label>
+                <input type="number" id="numOfPeople" name="numOfPeople" min="1"/>
+
+                <label htmlFor="city">Thành phố:</label>
+                <input type="text" id="city" name="city"/>
+
+                <label htmlFor="checkInDate">Ngày đến:</label>
+                <input type="date" id="checkInDate" name="checkInDate"/>
+
+                <label htmlFor="checkOutDate">Ngày đi:</label>
+                <input type="date" id="checkOutDate" name="checkOutDate"/>
+
+                <button className="filter-button">Lọc</button>
+            </div>
             <div className="body-container">
                 <HotelSearch>
                 </HotelSearch>

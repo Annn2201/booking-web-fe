@@ -4,8 +4,8 @@ import React, {SetStateAction, useEffect, useState} from 'react';
 import {Hotel} from "@/app/hotel/service/interfaces/hotel";
 import {getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/hotel/service/hotelService';
 import {Room} from "@/app/hotel/service/interfaces/room";
-import {number} from "prop-types";
 import {RoomBooking} from "@/app/hotel/service/interfaces/roomBooking";
+import "./style.css"
 
 const Book = () => {
     const hotelName = usePathname();
@@ -21,23 +21,9 @@ const Book = () => {
         console.log(roomBookingDetail)
     }
 
-    const handleClick = (roomName: string, price: number, countRooms: number) => {
-        setPrice(prevPrice => prevPrice + price * countRooms);
-        setRoomBooking(roomBooking => [...roomBooking, {name: roomName, numberOfRoom: countRooms}])
-    };
-
-    const handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const newCountRooms = parseInt(event.target.value);
-        setCountRooms(newCountRooms);
-    };
-
     useEffect(() => {
         getRoomBooingDetail();
     }, []);
-
-    if (!hotelDetails) {
-        return <div>Loading...</div>;
-    }
 
     // @ts-ignore
     return (
@@ -49,92 +35,36 @@ const Book = () => {
                         <li className="li">Home</li>
                         <li className="li">Courses</li>
                         <li className="li">Pricing</li>
-                        <li className="li">Previews</li>
+                        <li className="li" style={{color: '#0000FF'}}>Up ur hotel!</li>
                     </ul>
                     <div className="sign-in-button">Sign in</div>
                 </div>
             </div>
-            <div className="main-container">
-                <div className="center-container">
-                    <div className="hotel-details-container">
-                        <div className="hotel-details-container-header">
-                            <h1 className="hotel-details-container-name">{hotelDetails.name}</h1>
-                            <div className="hotel-details-container-address">
-                                <span>{hotelDetails.address}</span>
-                            </div>
-                        </div>
-                        <div className="image-container">
-                            <div className="hotel-detail-image" style={{
-                                backgroundImage: `url(${hotelDetails.image})`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'auto',
-                                backgroundPosition: 'center'
-                            }}></div>
-                        </div>
-                        <div className="hotel-details-container-description">
-                            <p>
-                                {hotelDetails.description}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="rooms-container">
-                        <div className="rooms-header">
-                            <h2>Rooms</h2>
-                        </div>
-                        <div className="rooms-table">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Type</th>
-                                    <th>Capacity</th>
-                                    <th>Price</th>
-                                    <th>Number of rooms</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {rooms && rooms.map((room, index) => (
-                                    <tr key={index} className="room-item">
-                                        <td>{room.name}</td>
-                                        <td>{room.description}</td>
-                                        <td>{room.type}</td>
-                                        <td>{room.capacity}</td>
-                                        <td>{room.price}</td>
-                                        <td className={'select-td'}>
-                                            <select onChange={(e) => handleChangeSelect(e)}>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select >
-                                            <button className='select-button'
-                                                    onClick={() => handleClick(room.name, room.price.valueOf(), countRooms)}>Select
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                                </tbody>
-                            </table>
-                        </div>
+            <div className={'booking-body-container'}>
+                <div className={'booking-room-detail'}>
+                    <h1 className={'booking-room-detail-title'}>Your booked rooms detail</h1>
+                    <div className={'booking-room-detail-content'}>
+                        <p>Name</p>
+                        <p>Count</p>
+                        <p>Total price</p>
                     </div>
                 </div>
-                <div className="sub-container">
-                    <h2>Selected Rooms</h2>
-                    <p>Selected Rooms:</p>
-                    <ul>
-                        {roomBooking && roomBooking.map((roomBooking, index) => (
-                            // eslint-disable-next-line react/jsx-key
-                            <div className={'select-room-content'}>
-                                <li key={index}>{roomBooking.name}</li>
-                                <p key={index}> Number of room: {roomBooking.numberOfRoom}</p>
-                            </div>
+                <div className="booker-information">
+                    <form id="booker-form">
+                        <label htmlFor="name">Họ và tên:</label>
+                        <input type="text" id="name" name="name" required/>
 
-                        ))}
-                    </ul>
-                    <p>Total Price: {price}</p>
-                    <div className="hotel-add-button">Book Now</div>
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" id="email" name="email" required/>
+
+                        <label htmlFor="phone">Số điện thoại:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required/>
+
+                        <label htmlFor="address">Địa chỉ:</label>
+                        <input type="text" id="address" name="address"/>
+
+                        <button type="submit">Đặt phòng</button>
+                    </form>
                 </div>
             </div>
         </div>

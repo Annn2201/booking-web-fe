@@ -1,0 +1,214 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Class cho grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+/* Class cho sidebar */
+.sidebar {
+    border-right: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+/* Class cho sidebar header */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Class cho notification button */
+.notification-button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Class cho sidebar navigation */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar-nav a.active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Class cho badge */
+.badge {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 50%;
+}
+
+/* Class cho sidebar footer */
+.sidebar-footer {
+    padding: 20px;
+}
+
+/* Class cho upgrade card */
+.upgrade-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.upgrade-card h2 {
+    margin-bottom: 10px;
+}
+
+.upgrade-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.upgrade-button:hover {
+    background-color: #0056b3;
+}
+
+/* Class cho main content */
+.main-content {
+    background-color: #fff;
+}
+
+/* Class cho main header */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+
+/* Class cho logo */
+.logo h1 {
+    margin: 0;
+}
+
+/* Class cho main navigation */
+/* Class cho main navigation */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.main-nav a.active {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Class cho user dropdown */
+.user-dropdown {
+    position: relative;
+}
+
+.avatar-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.avatar-button img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.user-dropdown-content p {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.user-dropdown-content hr {
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+/* Class cho main body */
+.main-body {
+    padding: 20px;
+}
+
+/* Class cho content header */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Class cho title */
+.title h2 {
+    margin: 0;
+}
+
+/* Class cho new article button */
+.new-article-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.new-article-button:hover {
+    background-color: #0056b3;
+}
+
+/* Class cho article list */
+.article-list {
+    /* Định dạng danh sách bài viết */
+}
+
