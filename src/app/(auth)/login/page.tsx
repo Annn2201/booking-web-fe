@@ -29,7 +29,7 @@ const LoginPage = () => {
                     <div>
                         <h1 className="text-center text-3xl font-extrabold text-gray-900">Login</h1>
                     </div>
-                    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                    <form method={'post'} className="mt-8 space-y-6" onSubmit={() => handleSubmit(event)}>
                         <input type="hidden" name="remember" value="true"/>
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>

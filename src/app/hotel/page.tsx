@@ -1,10 +1,10 @@
 "use client"
 import {useEffect, useState} from 'react';
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
-import {Hotel} from "@/app/hotel/service/interfaces/hotel";
-import {Type} from "@/app/hotel/service/interfaces/type";
-import {listAllType} from "@/app/hotel/service/hotelService";
-import {listAllHotel} from "@/app/hotel/service/hotelService";
+import {Hotel} from "@/app/service/interfaces/hotel";
+import {Type} from "@/app/service/interfaces/type";
+import {listAllType} from "@/app/service/hotelService";
+import {listAllHotel} from "@/app/service/hotelService";
 import "./style.css";
 import background from '@/public/background.jpg';
 

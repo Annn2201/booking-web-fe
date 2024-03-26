@@ -1,12 +1,12 @@
 "use client"
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 import React, {SetStateAction, useEffect, useState} from 'react';
-import {Hotel} from "@/app/hotel/service/interfaces/hotel";
-import {getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/hotel/service/hotelService';
+import {Hotel} from "@/app/service/interfaces/hotel";
+import {getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/service/hotelService';
 import "./detail-style.css"
-import {Room} from "@/app/hotel/service/interfaces/room";
+import {Room} from "@/app/service/interfaces/room";
 import {number} from "prop-types";
-import {RoomBooking} from "@/app/hotel/service/interfaces/roomBooking";
+import {RoomBooking} from "@/app/service/interfaces/roomBooking";
 
 const HotelDetailPage = () => {
     const router = useRouter();
@@ -32,7 +32,7 @@ const HotelDetailPage = () => {
     };
 
     const handleBooking = (roomBooking: RoomBooking[]) => {
-        router.push(`/book/?roomBooking=${JSON.stringify(roomBooking)}`)
+        router.push(`/book/?roomBooking=${JSON.stringify(roomBooking)}&totalPrice=${price}`)
         console.log(roomBooking)
     }
 
@@ -51,9 +51,9 @@ const HotelDetailPage = () => {
         }
     }
 
-    const handleClick = (roomName: string, price: number, countRooms: number) => {
+    const handleClick = (roomId: string, roomName: string, price: number, countRooms: number) => {
         setPrice(prevPrice => prevPrice + price * countRooms);
-        setRoomBooking(roomBooking => [...roomBooking, {name: roomName, numberOfRoom: countRooms}])
+        setRoomBooking(roomBooking => [...roomBooking, {id: roomId, name: roomName, numberOfRoom: countRooms}])
     };
 
     const handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -144,7 +144,7 @@ const HotelDetailPage = () => {
                                                 <option value="5">5</option>
                                             </select>
                                             <button className='select-button'
-                                                    onClick={() => handleClick(room.name, room.price.valueOf(), countRooms)}>Select
+                                                    onClick={() => handleClick(room.id, room.name, room.price.valueOf(), countRooms)}>Select
                                             </button>
                                         </td>
                                     </tr>

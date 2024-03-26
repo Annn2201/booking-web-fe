@@ -4,7 +4,7 @@
 
 {
 .container {
-    width: auto; /* Adjust as needed */
+    width: auto;
     display: block;
     justify-content: space-between;
     margin: 0 auto;
@@ -63,39 +63,45 @@
 
 .booking-body-container {
     margin-top: 2rem;
+    margin-right: 2rem;
     display: flex;
 }
 
 .booking-room-detail {
-    background-color: #f9f9f9;
+    margin-top: 20px;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 8px;
 }
 
 .booking-room-detail-title {
     font-size: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-
-.booking-room-detail-content p {
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
+.booking-room-detail-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.booking-room-detail-content p:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.booking-room-info {
+    margin-bottom: 10px;
 }
 
-.booking-room-detail-content p:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.booking-room-info p {
+    margin: 5px 0;
 }
+
+.booking-room-info p:first-child {
+    font-weight: bold;
+}
+
+.total-price {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 
 
 .booker-information {

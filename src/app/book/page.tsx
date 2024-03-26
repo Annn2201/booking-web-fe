@@ -1,24 +1,34 @@
 "use client"
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 import React, {SetStateAction, useEffect, useState} from 'react';
-import {Hotel} from "@/app/hotel/service/interfaces/hotel";
-import {getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/hotel/service/hotelService';
-import {Room} from "@/app/hotel/service/interfaces/room";
-import {RoomBooking} from "@/app/hotel/service/interfaces/roomBooking";
+import {bookRoom, getHotelDetails, getRoomByHotelName, getRoomsByHotelName} from '@/app/service/hotelService';
+import {RoomBooking} from "@/app/service/interfaces/roomBooking";
 import "./style.css"
 
 const Book = () => {
-    const hotelName = usePathname();
-    const [hotelDetails, setHotelDetails] = useState<Hotel>();
-    const [rooms, setRooms] = useState<Room[]>([]);
-    const [countRooms, setCountRooms] = useState<number>(1);
-    const [price, setPrice] = useState<number>(0);
     const roomBooking = useSearchParams();
     const roomBookingList = roomBooking.get('roomBooking')
+    const totalPrice = roomBooking.get('totalPrice')
+
     const [roomBookingDetail, setRoomBookingDetail] = useState<RoomBooking[]>([]);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [number, setNumber] = useState('');
+    const [email, setEmail] = useState('');
     const getRoomBooingDetail = () => {
         setRoomBookingDetail(roomBookingList ? JSON.parse(roomBookingList) : [])
-        console.log(roomBookingDetail)
+    }
+
+
+    const handleBooking = async (firstName: string, lastName: string, email: string, number: string) => {
+        let ids = roomBookingDetail.map((item) => item.id).join(',');
+        console.log(ids)
+        try {
+            const { data } = await bookRoom(firstName, lastName, email, number, ids);
+            alert("Đã đặt phòng thành công");
+        } catch (err) {
+            alert("Phòng đã có người đặt vui lòng chọn phòng khác");
+        }
     }
 
     useEffect(() => {
@@ -44,24 +54,28 @@ const Book = () => {
                 <div className={'booking-room-detail'}>
                     <h1 className={'booking-room-detail-title'}>Your booked rooms detail</h1>
                     <div className={'booking-room-detail-content'}>
-                        <p>Name</p>
-                        <p>Count</p>
-                        <p>Total price</p>
+                        {roomBookingDetail.map((booking, index) => (
+                            <div key={index} className="booking-room-info">
+                                <p> Name room:  {booking.name}</p>
+                                <p> Count: {booking.numberOfRoom}</p>
+                            </div>
+                        )) }
+                        <p style={{fontWeight: 'bold', color:'#0000FF', fontSize: '30px'}}>Total price: {totalPrice}</p>
                     </div>
                 </div>
                 <div className="booker-information">
-                    <form id="booker-form">
-                        <label htmlFor="name">Họ và tên:</label>
-                        <input type="text" id="name" name="name" required/>
+                    <form id="booker-form" onSubmit={() => handleBooking(firstName, lastName, email, number)}>
+                        <label htmlFor="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstName" onChange={(e) => setFirstName(e.target.value)} required/>
+
+                        <label htmlFor="lastname">Last Name:</label>
+                        <input type="text" id="lastname" name="lastName" onChange={(e) => setLastName(e.target.value)}required/>
 
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required/>
+                        <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)}required/>
 
-                        <label htmlFor="phone">Số điện thoại:</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required/>
-
-                        <label htmlFor="address">Địa chỉ:</label>
-                        <input type="text" id="address" name="address"/>
+                        <label htmlFor="phone">Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" onChange={(e) => setNumber(e.target.value)}required/>
 
                         <button type="submit">Đặt phòng</button>
                     </form>

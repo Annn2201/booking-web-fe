@@ -35,3 +35,32 @@ export const getRoomsByHotelName = (hotelName: string) => {
         url: BASE_URL.concat(`/rooms/${hotelName}`),
     });
 }
+
+export const bookRoom = (firstName: string, lastName: string, email: string, number: string, ids: string) => {
+    return axios({
+        method: "POST",
+        url: BASE_URL.concat("/book"),
+        data: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            number: number,
+            ids: ids
+        }
+    });
+}
+
+export const deleteHotel = (id: string) => {
+    return axios({
+        method: "DELETE",
+        url: BASE_URL.concat(`/${id}`),
+    });
+}
+
+export const createHotelApi = (data: any) => {
+    return axios({
+        method: "POST",
+        url: BASE_URL,
+        data: data
+    })
+}

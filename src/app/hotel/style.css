@@ -4,7 +4,7 @@
 
 {
 .container {
-    width: auto; /* Adjust as needed */
+    width: auto;
     display: block;
     justify-content: space-between;
     margin: 0 auto;
@@ -61,10 +61,10 @@
     transition: background-color 0.3s ease;
 }
 
-.image-container { /* Điều chỉnh kích thước hình ảnh */
+.image-container {
     height: 25rem;
-    overflow: hidden; /* Đảm bảo hình ảnh không tràn ra khỏi container */
-    margin: 20px; /* Khoảng cách giữa hình ảnh và nội dung khác */
+    overflow: hidden;
+    margin: 20px;
     border-radius: 5px;
 }
 
@@ -80,8 +80,8 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: -50px; /* Điều chỉnh margin-top để đặt thanh bộ lọc vào giữa */
-    z-index: 1; /* Đảm bảo thanh bộ lọc hiển thị trên phần background image */
+    margin-top: -50px;
+    z-index: 1;
 }
 
 .filter-bar label {
@@ -118,7 +118,7 @@
 
 .body-container {
     display: flex;
-    position: relative; /* Để đảm bảo .hotel-search stick với .body-container */
+    position: relative;
     margin-top: 1rem;
 }
 
@@ -164,7 +164,7 @@
 }
 
 .hotel-checkin-out input[type="date"] {
-    width: calc(100% - 1rem); /* Điều chỉnh kích thước input để phù hợp với giao diện */
+    width: calc(100% - 1rem);
     padding: 0.5rem;
     border: 1px solid #d1d5db;
     border-radius: 0.25rem;
@@ -190,8 +190,6 @@
     background-color: #0000FFC3;
 }
 
-
-/* Container styling */
 .hotel-list {
     width: 80%;
     padding: 1rem;
@@ -200,14 +198,12 @@
     border-radius: 0.5rem;
 }
 
-/* Title styling */
 .hotel-list-title {
     font-size: 1.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-/* List styling */
 .hotel-list ul {
     border-top: 1px solid #D1D5DB;
     height: auto;
