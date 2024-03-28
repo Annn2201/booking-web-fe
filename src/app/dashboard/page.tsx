@@ -45,7 +45,7 @@ const Dashboard = () => {
         useEffect(() => {
             if (visible) {
                 setIsLoading(true);
-                fetch(`http://192.168.1.10:8080/api/v1/hotel/${hotel.name}`)
+                fetch(`http://localhost:8080/api/v1/hotel/${hotel.name}`)
                     .then(response => response.json())
                     .then(data => setRoomData(data))
                     .catch(error => console.error(error))
@@ -196,7 +196,6 @@ const Dashboard = () => {
             <div className="sidebar">
                 <div className="sidebar-header">
                     <h1>Booking</h1>
-                    <button className="notification-button">Notification</button>
                 </div>
                 <nav className="sidebar-nav">
                     <ul>

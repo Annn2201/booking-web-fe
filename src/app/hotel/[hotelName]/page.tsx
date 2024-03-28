@@ -81,9 +81,9 @@ const HotelDetailPage = () => {
                 <div className="menu">
                     <ul>
                         <li className="li">Home</li>
-                        <li className="li">Courses</li>
+                        <li className="li">Service</li>
                         <li className="li">Pricing</li>
-                        <li className="li">Previews</li>
+                        <li className="li" style={{color: '#0000FF'}}>Up ur hotel!</li>
                     </ul>
                     <div className="sign-in-button">Sign in</div>
                 </div>

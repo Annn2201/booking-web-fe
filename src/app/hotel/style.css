@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-{
-.container {
-    width: auto;
-    display: block;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 1rem;
+{  .top-banner {
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.48); /* Màu đen với độ trong suốt 0.5 */
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
+    width: 70%;
+    display: flex; /* Sử dụng flexbox */
+    justify-content: space-between; /* Căn các phần tử con theo kiểu space-between */
     align-items: center;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    position: relative;
+    z-index: 1;
 }
+
 
 .menu {
     display: flex;
@@ -23,7 +37,7 @@
 
 .menu ul {
     list-style-type: none;
-    margin: 0px 35px;
+    margin: auto;
     display: flex;
 }
 
@@ -37,7 +51,7 @@
     display: block;
     width: 0;
     height: 3px;
-    background-color: #0000FF;
+    background-color: #f8b600;
     transition: width 0.3s;
 }
 
@@ -50,16 +64,29 @@
 }
 
 .sign-in-button {
-    margin: auto;
+    margin: auto 6.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    background-color: #0000FF;
+    background-color: #f8b600;
     color: #ffffff;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.text-banner {
+    width: 100%;
+    margin: 12.5rem auto;
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+.text-white {
+    text-align: center;
+}
+
 
 .image-container {
     height: 25rem;
@@ -82,6 +109,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: -50px;
     z-index: 1;
+    width: 70%;
+    margin-left: 18rem;
+    position: relative;
 }
 
 .filter-bar label {
@@ -103,23 +133,24 @@
 
 .filter-bar button.filter-button {
     padding: 10px 20px;
-    background-color: #0000FF;
+    background-color: #f8b600;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .filter-bar button.filter-button:hover {
-    background-color: #0000FFC3;
+    background-color: #6c5c02;
 }
 
-
 .body-container {
+    width: 70%;
     display: flex;
     position: relative;
-    margin-top: 1rem;
+    margin:2rem auto;
 }
 
 .hotel-search {
@@ -178,7 +209,7 @@
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    background-color: #0000FF;
+    background-color: #f8b600;
     color: #ffffff;
     border: none;
     border-radius: 0.5rem;
@@ -187,7 +218,7 @@
 }
 
 .hotel-search-button:hover {
-    background-color: #0000FFC3;
+    background-color: #6c5c02;
 }
 
 .hotel-list {

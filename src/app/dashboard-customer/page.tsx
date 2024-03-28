@@ -60,7 +60,6 @@ const DashboardCustomer = () => {
             <div className="sidebar">
                 <div className="sidebar-header">
                     <h1>Booking</h1>
-                    <button className="notification-button">Notification</button>
                 </div>
                 <nav className="sidebar-nav">
                     <ul>

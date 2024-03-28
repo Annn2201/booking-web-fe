@@ -43,9 +43,9 @@ const Book = () => {
                 <div className="menu">
                     <ul>
                         <li className="li">Home</li>
-                        <li className="li">Courses</li>
+                        <li className="li">Service</li>
                         <li className="li">Pricing</li>
-                        <li className="li" style={{color: '#0000FF'}}>Up ur hotel!</li>
+                        <li className="li" style={{color: '#f8b600'}}>Up ur hotel!</li>
                     </ul>
                     <div className="sign-in-button">Sign in</div>
                 </div>
@@ -60,7 +60,7 @@ const Book = () => {
                                 <p> Count: {booking.numberOfRoom}</p>
                             </div>
                         )) }
-                        <p style={{fontWeight: 'bold', color:'#0000FF', fontSize: '30px'}}>Total price: {totalPrice}</p>
+                        <p style={{fontWeight: 'bold', color:'#f8b600', fontSize: '30px'}}>Total price: {totalPrice}</p>
                     </div>
                 </div>
                 <div className="booker-information">

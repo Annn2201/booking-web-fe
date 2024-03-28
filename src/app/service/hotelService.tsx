@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = 'http://192.168.1.10:8080/api/v1/hotel'
+const BASE_URL = 'http://localhost:8080/api/v1/hotel'
 
 export const listAllHotel = () => {
     return axios({
