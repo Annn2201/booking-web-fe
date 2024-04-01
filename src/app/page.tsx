@@ -1,9 +1,18 @@
+"use client"
+
 import './home-style.css'
-import React from "react";
-import  { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import React, {useState} from "react";
+import  { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faStore, faCarSide, faDumbbell} from '@fortawesome/free-solid-svg-icons'
+import {SearchRequest} from "@/app/service/interfaces/searchRequest";
+
+
 
 const landingPage = () => {
+    const [searchRequest, setSearchRequest] = useState<SearchRequest>();
+    const handleSearch = () => {
+
+}
     return (
         <>
             <div className={'body-container'}>

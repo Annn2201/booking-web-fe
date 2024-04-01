@@ -3,4 +3,6 @@ export interface RoomBooking {
     id: string
     name: string
     numberOfRoom: number
+    startDate: string
+    endDate: string
 }

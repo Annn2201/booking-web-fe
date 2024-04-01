@@ -133,6 +133,7 @@
 
 .icon {
     width: 5rem;
+    height: 5rem;
     margin: 2.5rem;
     color: #f8b600;
     transition: color 0.3s ease;

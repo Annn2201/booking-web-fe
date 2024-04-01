@@ -1,3 +1,9 @@
+"use client"
+import {useState} from "react";
+
+const [startDate, setStartDate] = useState(new Date());
+const [endDate, setEndDate] = useState(new Date());
+
 const landingPage = () => {
     return (
         <>
